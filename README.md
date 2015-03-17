@@ -30,7 +30,7 @@ or, if error was happened:
 #### /tracks
 * ```<track_id>``` — 64-bit uint in hex
 
-##### GET /all
+##### GET /simple/0.0.1/tracks/all
 Arguments:
 
 * ```from=<track_id/0>```
@@ -51,9 +51,9 @@ Arguments:
 }
 ```
 
-##### GET /&lt;track_id&gt;.mp3
+##### GET /simple/0.0.1/tracks/&lt;track_id&gt;.mp3
 
-##### POST /search/simple?q=&lt;utf8&gt;&amp;limit=&lt;nat&gt;
+##### POST /simple/0.0.1/tracks/search/simple?q=&lt;utf8&gt;&amp;limit=&lt;nat&gt;
 Initiates search. Returns first part of results. Next parts must be accessed by /search/continue calls with corresponding &lt;searchId&gt;.
 
 ```
@@ -67,14 +67,14 @@ Initiates search. Returns first part of results. Next parts must be accessed by 
 }
 ```
 
-##### POST /search/continue/&lt;searchId&gt;
+##### POST /simple/0.0.1/tracks/search/continue/&lt;searchId&gt;
 Response is the same as at start of a search. But it also can be:
 
 ```
 {expired: true}
 ```
 
-##### POST /search/renew/&lt;searchId&gt;
+##### POST /simple/0.0.1/tracks/search/renew/&lt;searchId&gt;
 If *searchId* is about to expire, but user maybe still want to continue viewing results later, token can be renewed.
 
 ```
